@@ -4,16 +4,17 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full bg-black text-green-700">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+    <nav className="w-full bg-black text-green-400">
+      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-12">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
-            <a href="javascript:void(0)">
-              <h2 className="text-lg md:text-2xl font-bold">TASK TRACKER</h2>
-            </a>
+            <h2 className="text-2xl font-brah md:text-4xl mt-3 md:mt-5 font-bold">
+              TASK TRACKER
+            </h2>
+
             <div className="md:hidden">
               <button
-                className="p-2  rounded-md outline-none focus:border-gray-400 focus:border"
+                className="p-2  rounded-md outline-none "
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
@@ -56,7 +57,7 @@ const Navbar = () => {
             }`}
           >
             <ul className="items-center  text-white  justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <li className=" hover:text-green-600">
+              <li className=" hover:text-green-400">
                 <Link href="/">Home</Link>
               </li>
               <li className=" hover:text-green-600">
