@@ -1,9 +1,12 @@
 import { Login, Navbar } from "@/components";
 
-export default function Home() {
+const login = () => {
   return (
     <>
       <Navbar />
+      <Login />
     </>
   );
-}
+};
+
+export default login;
