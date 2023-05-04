@@ -45,7 +45,7 @@ const Login = () => {
 
         const user = result.user;
         console.log(user);
-        navigate("/");
+        router.push("/");
       })
       .catch((error) => {
         alert(error);
@@ -53,8 +53,8 @@ const Login = () => {
   };
   return (
     <>
-      <div class="w-full  h-screen flex justify-center items-center">
-        <div className=" md:w-2/5 px-12 py-32 rounded-2xl ">
+      <div class="w-full  flex justify-center items-center">
+        <div className="  lg:w-[25rem] px-12 py-32 rounded-2xl ">
           <div className=" text-center text-white font-bold text-3xl">
             Welcome !!
           </div>
@@ -67,7 +67,6 @@ const Login = () => {
               id="email"
               className="input"
               type="text"
-              placeholder=" "
               onChange={(event) => {
                 setValues((prev) => ({ ...prev, email: event.target.value }));
               }}
@@ -82,7 +81,6 @@ const Login = () => {
               id="password"
               className="input"
               type="text"
-              placeholder=" "
               onChange={(event) => {
                 setValues((prev) => ({
                   ...prev,

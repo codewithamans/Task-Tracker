@@ -1,6 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 import Link from "next/link";
-const Navbar = () => {
+const Navbar = ({ mystate }) => {
+  const [user, setUser] = useState();
+  const [photo, setphoto] = useState("");
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      console.log(user);
+      if (user) {
+        setUser(user.displayName);
+
+        setphoto(user.photoURL);
+        // console.log(user);
+      }
+    });
+  }, []);
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -60,9 +76,23 @@ const Navbar = () => {
               <li className=" hover:text-green-400">
                 <Link href="/">Home</Link>
               </li>
-              <li className=" hover:text-green-600">
-                <Link href="/login">Login</Link>
-              </li>
+
+              {mystate ? (
+                <li className="flex space-x-2">
+                  <img
+                    src={photo}
+                    alt="Noimage"
+                    className="rounded-full border-2 border-green-500"
+                    width={25}
+                    height={25}
+                  />
+                  <h1>{user}</h1>
+                </li>
+              ) : (
+                <li className=" hover:text-green-600">
+                  <Link href="/login">Login</Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
